@@ -1,10 +1,16 @@
-from flask import Flask
+from flask import Flask, render_template
+import whisper
 
 app = Flask(__name__)
 
+#model = whisper.load_model("base")
+#result = model.transcribe("harvard.wav", verbose=True)
+
+#print(result['text'])
+
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return render_template('home.html')
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
